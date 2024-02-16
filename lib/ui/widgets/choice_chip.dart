@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app_phone/ui/theme/app_colors.dart';
 
 List<String> messages = [
   'SMS',
@@ -31,9 +32,9 @@ class MessageChoiceChip extends StatelessWidget {
           borderRadius: BorderRadius.circular(100),
           side: const BorderSide(color: Colors.transparent),
         ),
-        selectedColor: const Color(0xFFBFFF07),
+        selectedColor: AppColors.selectedColor,
         disabledColor: Colors.white,
-        backgroundColor: isSelected ? const Color(0xFFBFFF07) : Colors.white,
+        backgroundColor: isSelected ? AppColors.selectedColor : Colors.white,
         label: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 12,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_phone/resources/resources.dart';
+import 'package:test_app_phone/ui/theme/app_colors.dart';
+import 'package:test_app_phone/ui/theme/app_fonts.dart';
 import 'package:test_app_phone/ui/widgets/phone_number.dart';
 
 class ContactCardWidget extends StatelessWidget {
@@ -17,11 +19,7 @@ class ContactCardWidget extends StatelessWidget {
             const SizedBox(width: 6),
             const Text(
               'United States',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Color(0xff29364E),
-              ),
+              style: AppFonts.s16w600,
             ),
           ],
         ),
@@ -30,7 +28,7 @@ class ContactCardWidget extends StatelessWidget {
           height: MediaQuery.sizeOf(context).height * 0.28,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: const Color(0xffF5F7FA),
+            color: AppColors.containerBgColor,
             borderRadius: BorderRadius.circular(16),
           ),
           child: const Padding(

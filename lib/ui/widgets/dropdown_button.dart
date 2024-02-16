@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app_phone/ui/theme/app_fonts.dart';
 
 class DropdownButtonWidget extends StatelessWidget {
   const DropdownButtonWidget({
@@ -42,11 +43,7 @@ class DropdownButtonWidget extends StatelessWidget {
               value: item,
               child: Text(
                 item,
-                style: const TextStyle(
-                  color: Color(0xff29364E),
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: AppFonts.s16w600,
               ),
             ),
           )
