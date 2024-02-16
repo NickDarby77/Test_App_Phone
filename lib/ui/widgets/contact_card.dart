@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app_phone/resources/resources.dart';
 import 'package:test_app_phone/ui/widgets/phone_number.dart';
 
 class ContactCardWidget extends StatelessWidget {
@@ -12,7 +13,7 @@ class ContactCardWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            Image.asset("assets/images/usa.png"),
+            Image.asset(AppImages.usa),
             const SizedBox(width: 6),
             const Text(
               'United States',

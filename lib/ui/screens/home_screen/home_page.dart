@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:test_app_phone/resources/resources.dart';
 import 'package:test_app_phone/ui/theme/app_colors.dart';
 import 'package:test_app_phone/ui/theme/app_fonts.dart';
 import 'package:test_app_phone/ui/widgets/choice_chip.dart';
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         leading: IconButton(
           padding: const EdgeInsets.only(left: 16),
           onPressed: () {},
-          icon: SvgPicture.asset('assets/svgs/menu.svg'),
+          icon: SvgPicture.asset(AppSvgs.menu),
         ),
         title: const Text(
           '+12021234567',
@@ -35,15 +36,15 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset('assets/svgs/chart.svg'),
+            icon: SvgPicture.asset(AppSvgs.chart),
           ),
           IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset('assets/svgs/message.svg'),
+            icon: SvgPicture.asset(AppSvgs.message),
           ),
           IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset('assets/svgs/notifications.svg'),
+            icon: SvgPicture.asset(AppSvgs.notifications),
           ),
           const SizedBox(width: 9),
         ],
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(height: 16),
                       Row(
                         children: [
-                          SvgPicture.asset('assets/svgs/check.svg'),
+                          SvgPicture.asset(AppSvgs.check),
                           const SizedBox(width: 9),
                           const Text(
                             'Show number without verification',

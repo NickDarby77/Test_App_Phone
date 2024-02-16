@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:test_app_phone/resources/resources.dart';
 
 class PhoneNumberWidget extends StatelessWidget {
   const PhoneNumberWidget({
@@ -15,7 +16,7 @@ class PhoneNumberWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            SvgPicture.asset('assets/svgs/mobile.svg'),
+            SvgPicture.asset(AppSvgs.mobile),
             const SizedBox(width: 9),
             RichText(
               text: TextSpan(
@@ -42,9 +43,9 @@ class PhoneNumberWidget extends StatelessWidget {
         const Spacer(),
         Row(
           children: [
-            SvgPicture.asset('assets/svgs/s.svg'),
+            SvgPicture.asset(AppSvgs.s),
             const SizedBox(width: 9),
-            SvgPicture.asset('assets/svgs/v.svg'),
+            SvgPicture.asset(AppSvgs.v),
           ],
         ),
       ],
