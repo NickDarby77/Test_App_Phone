@@ -1,57 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:test_app_phone/ui/theme/app_colors.dart';
 
-List<String> messages = [
-  'SMS',
-  'MMS',
-  'Voice',
-];
+class CustomChoiceChip extends StatelessWidget {
+  final bool selected;
+  final String label;
+  final void Function(bool value)? onSelected;
 
-String selectedMessage = 'MMS';
-
-class MessageChoiceChip extends StatelessWidget {
-  const MessageChoiceChip({
-    super.key,
-    required this.isSelected,
-    required this.title,
+  const CustomChoiceChip({
+    Key? key,
+    required this.selected,
+    required this.label,
     required this.onSelected,
-  });
-
-  final bool isSelected;
-  final String title;
-  final Function(bool) onSelected;
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: ChoiceChip(
-        showCheckmark: false,
-        onSelected: onSelected,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100),
-          side: const BorderSide(color: Colors.transparent),
+    return ChoiceChip(
+      showCheckmark: false,
+      label: Text(label),
+      labelStyle: TextStyle(
+        color: selected ? const Color(0xff29364E) : const Color(0xFF8693A3),
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+      ),
+      selected: selected,
+      selectedColor: AppColors.selectedColor,
+      disabledColor: Colors.white,
+      labelPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
+      onSelected: onSelected,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(100),
+        side: const BorderSide(
+          color: Colors.transparent,
         ),
-        selectedColor: AppColors.selectedColor,
-        disabledColor: Colors.white,
-        backgroundColor: isSelected ? AppColors.selectedColor : Colors.white,
-        label: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 12,
-            vertical: 6,
-          ),
-          child: Text(
-            title,
-            style: TextStyle(
-              color: isSelected
-                  ? const Color(0xff29364E)
-                  : const Color(0xFF8693A3),
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-        selected: isSelected,
       ),
     );
   }

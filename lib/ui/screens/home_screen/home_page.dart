@@ -16,8 +16,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> items = ['Landline or Mobile', 'Landline', 'Mobile'];
+  List<String> items = [
+    'Landline or Mobile',
+    'Landline',
+    'Mobile',
+  ];
   String? selectedItem = 'Landline or Mobile';
+
+  int defaultIndex = 1;
+  List<String> messages = [
+    'SMS',
+    'MMS',
+    'Voice',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +67,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               const SizedBox(height: 22),
               Container(
-                height: MediaQuery.sizeOf(context).height * 0.27,
+                height: MediaQuery.sizeOf(context).height * 0.25,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: AppColors.containerBgColor,
@@ -67,43 +78,45 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       Expanded(
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemCount: messages.length,
-                          itemBuilder: (context, index) => MessageChoiceChip(
-                            isSelected: selectedMessage == messages[index],
-                            title: messages[index],
-                            onSelected: (value) {
-                              setState(() {
-                                selectedMessage = messages[index];
-                              });
-                            },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: List.generate(
+                            messages.length,
+                            (index) => CustomChoiceChip(
+                              selected: defaultIndex == index,
+                              label: messages[index],
+                              onSelected: (value) {
+                                setState(() {
+                                  defaultIndex = value ? index : defaultIndex;
+                                });
+                              },
+                            ),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 6),
-                      DropdownButtonWidget(
-                        selectedItem: selectedItem,
-                        items: items,
-                        onChanged: (String? itemText) {
-                          setState(() {
-                            selectedItem = itemText;
-                          });
-                        },
+                      Expanded(
+                        child: DropdownButtonWidget(
+                          selectedItem: selectedItem,
+                          items: items,
+                          onChanged: (String? itemText) {
+                            setState(() {
+                              selectedItem = itemText;
+                            });
+                          },
+                        ),
                       ),
-                      const SizedBox(height: 16),
-                      Row(
-                        children: [
-                          SvgPicture.asset(AppSvgs.check),
-                          const SizedBox(width: 9),
-                          const Text(
-                            'Show number without verification',
-                            style: AppFonts.s15w400,
-                          ),
-                        ],
+                      Expanded(
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(AppSvgs.check),
+                            const SizedBox(width: 9),
+                            const Text(
+                              'Show number without verification',
+                              style: AppFonts.s15w400,
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(height: 18),
                     ],
                   ),
                 ),

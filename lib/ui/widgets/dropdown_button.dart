@@ -37,6 +37,7 @@ class DropdownButtonWidget extends StatelessWidget {
         ),
       ),
       value: selectedItem,
+      onChanged: onChanged,
       items: items
           .map(
             (item) => DropdownMenuItem<String>(
@@ -48,7 +49,6 @@ class DropdownButtonWidget extends StatelessWidget {
             ),
           )
           .toList(),
-      onChanged: onChanged,
     );
   }
 }

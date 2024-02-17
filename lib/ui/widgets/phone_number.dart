@@ -23,6 +23,11 @@ class PhoneNumberWidget extends StatelessWidget {
               text: TextSpan(
                 style: AppFonts.s16w600,
                 children: [
+                  const WidgetSpan(
+                    alignment: PlaceholderAlignment.belowBaseline,
+                    baseline: TextBaseline.alphabetic,
+                    child: SizedBox(height: 5),
+                  ),
                   const TextSpan(text: '+1 (201) 123 45 67 \n'),
                   TextSpan(
                     text: text,

@@ -25,22 +25,25 @@ class ContactCardWidget extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         Container(
-          height: MediaQuery.sizeOf(context).height * 0.28,
+          height: MediaQuery.sizeOf(context).height * 0.25,
           width: double.infinity,
           decoration: BoxDecoration(
             color: AppColors.containerBgColor,
             borderRadius: BorderRadius.circular(16),
           ),
           child: const Padding(
-            padding: EdgeInsets.all(18),
+            padding: EdgeInsets.all(12),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                PhoneNumberWidget(text: 'New Jersey'),
-                SizedBox(height: 12),
-                PhoneNumberWidget(text: 'Washington'),
-                SizedBox(height: 12),
-                PhoneNumberWidget(text: 'New Jersey'),
+                Expanded(
+                  child: PhoneNumberWidget(text: 'New Jersey'),
+                ),
+                Expanded(
+                  child: PhoneNumberWidget(text: 'Washington'),
+                ),
+                Expanded(
+                  child: PhoneNumberWidget(text: 'New Jersey'),
+                ),
               ],
             ),
           ),
